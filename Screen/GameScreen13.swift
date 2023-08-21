@@ -12,7 +12,20 @@ struct GameScreen13: View {
     
     //variables
     @State private var isRotated = false
-    
+    var imageStartSizeWidthPercentage = 0.8
+    var imageStartPaddingTopTextPercentage = 70.0
+    var imageShinesFrameWidthPercentage = 0.8
+    var imageShinesPosXWidthPercentage = 0.2
+    var imageShinesPosYHeightPercentage = 0.12
+    var imageSunFrameWidthPercentage = 0.1
+    var imageSunPosXWidthPercentage = 0.3
+    var imageSunPosYHeightPercentage = 0.12
+    var thankYouTextSizeWidthPercentage = 0.08
+    var textFontSizePercentage = 0.035
+    var textPaddingBottom = 50.0
+    var textPaddingHorizontal = 100.0
+    var widthArrowRightPercentage = 0.07
+    var paddingBottomArrowRightButton = 100.0
     
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
@@ -24,16 +37,16 @@ struct GameScreen13: View {
                     Image("ImageStart")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: geometry.size.width * 0.8)
-                        .padding(.top, 70.0)
+                        .frame(width: geometry.size.width * imageStartSizeWidthPercentage)
+                        .padding(.top, imageStartSizeWidthPercentage)
                     
                     HStack {
                         Image("shines")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: geometry.size.width*0.8)
+                            .frame(width: geometry.size.width * imageSunFrameWidthPercentage)
                             .rotationEffect(Angle.degrees(isRotated ? -360 : 0))
-                            .position(x: UIScreen.main.bounds.width * 0.2, y: UIScreen.main.bounds.height * 0.12)
+                            .position(x: UIScreen.main.bounds.width * imageSunPosXWidthPercentage, y: UIScreen.main.bounds.height * imageSunPosYHeightPercentage)
                             .onAppear(){
                                 DispatchQueue.main.async {
                                     self.isRotated = true
@@ -43,33 +56,33 @@ struct GameScreen13: View {
                         Image("sun")
                             .resizable()
                             .scaledToFit()
-                            .frame(width : geometry.size.width*0.1)
-                            .position(x: UIScreen.main.bounds.width * -0.3, y: UIScreen.main.bounds.height * 0.12)
+                            .frame(width : geometry.size.width * imageSunFrameWidthPercentage)
+                            .position(x: UIScreen.main.bounds.width * -(imageSunPosXWidthPercentage), y: UIScreen.main.bounds.height * imageShinesPosYHeightPercentage)
                     }
                     VStack {
                         Spacer()
                         Text("THANK YOU!")
-                            .font(.system(size: geometry.size.width * 0.08, weight: .bold, design: .rounded))
+                            .font(.system(size: geometry.size.width * thankYouTextSizeWidthPercentage, weight: .bold, design: .rounded))
                             .scaledToFit()
                         Spacer()
                         Spacer()
                         Spacer()
                         Spacer()
                         Text("i hope this app will help you as well as it helps me :)")
-                            .font(.system(size: geometry.size.width * 0.035, weight: .semibold, design: .rounded))
+                            .font(.system(size: geometry.size.width * textFontSizePercentage, weight: .semibold, design: .rounded))
                             .multilineTextAlignment(.center)
-                            .padding(.bottom, 50)
-                            .padding(.horizontal, 100)
+                            .padding(.bottom, textPaddingBottom)
+                            .padding(.horizontal, textPaddingHorizontal)
                         NavigationLink(destination: ContentView()){
                             Image(systemName: "arrow.clockwise")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geometry.size.height * 0.07)
+                                .frame(width: geometry.size.height * widthArrowRightPercentage)
                                 .foregroundColor(Color.black)
                                 .ignoresSafeArea(.all)
                                 .edgesIgnoringSafeArea(.all)
                             }
-                        .padding(.bottom, 100.0)
+                        .padding(.bottom, paddingBottomArrowRightButton)
                             
                     }
                     

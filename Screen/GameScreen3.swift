@@ -11,6 +11,13 @@ struct GameScreen3: View {
     //variables
     @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
 
+    var widthArrowRightPercentage = 0.07
+    var paddingTopArrowRightButton = 60.0
+    var paddingBottomArrowRightButton = 100.0
+    var takeOutClothesImageSizeWidthPercentage = 0.6
+    
+    var paddingTopTextHorizontal = 70.0
+    
     
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
@@ -26,23 +33,23 @@ struct GameScreen3: View {
                         Text ("step 4 : remove the soiled clothes that have been soaked, then the detailed brushing process can begin.")
                             .font(.system(size: fontSizeTitle , weight: .semibold , design: .rounded ))
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 70.0)
+                            .padding(.horizontal, paddingTopTextHorizontal)
                         Spacer()
                         Image ("takeOutClothes")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width * 0.6)
+                            .frame(width: UIScreen.main.bounds.width * takeOutClothesImageSizeWidthPercentage)
                         Spacer()
                         NavigationLink(destination: GameScreen4()){
                             Image(systemName: "arrow.right")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geometry.size.height * 0.07)
+                                .frame(width: geometry.size.height * widthArrowRightPercentage)
                                 .foregroundColor(Color.black)
                                 .ignoresSafeArea(.all)
                                 .edgesIgnoringSafeArea(.all)
-                        }.padding(.top, 60)
-                            .padding(.bottom,100)
+                        }.padding(.top, paddingTopArrowRightButton)
+                            .padding(.bottom,paddingBottomArrowRightButton)
                         
                     }
                 }

@@ -13,29 +13,24 @@ struct GameScreen5: View {
     @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.03
     
     //varables for tracking the dirts location
-    let xDirtPos : CGFloat = UIScreen.main.bounds.size.width
-    let yDirtPos : CGFloat = UIScreen.main.bounds.size.height
+    let dirtPos : [CGFloat] = [UIScreen.main.bounds.size.width, UIScreen.main.bounds.size.height]
     
     //start state for trigger checkmark pop up on every dirts
-    @State var isCleanDirt1 = false
-    @State var isCleanDirt2 = false
-    @State var isCleanDirt3 = false
-    @State var isCleanDirt4 = false
+    @State var isCleanDirt = [false, false, false, false]
     
     //array for opacity of every dirts
     @State var dirtOpacity : [Double] = [1.0,1.0,1.0, 1.0]
     
     //checkmark pop up start location
-    @State var checkMarkDirt1: CGPoint = CGPoint(x: 0, y: 0)
-    @State var checkMarkDirt2: CGPoint = CGPoint(x: 0, y: 0)
-    @State var checkMarkDirt3: CGPoint = CGPoint(x: 0, y: 0)
-    @State var checkMarkDirt4: CGPoint = CGPoint(x: 0, y: 0)
+    @State var checkMarkDirt: [CGPoint] = [CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0)]
     
     //counter variables to keep count
     @State var counter : Int = 0
     
     //variables for showing the next button
     @State var isButtonHidden:  Bool = false
+    
+    @State var textCollections: [String] = []
     
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
@@ -96,20 +91,20 @@ struct GameScreen5: View {
                     .position(x: textSetPosX(textPosX: 0.5), y: textSetPosY(textPosY: 0.78))
                     .padding(.trailing, 150)
                     //dirt1
-                    if dirtOpacity[0] < 0.1 && !isCleanDirt1{
+                    if dirtOpacity[0] < 0.1 && !isCleanDirt[0]{
                         CheckMarkPop()
                             .onAppear{
                                 withAnimation(.easeInOut(duration: 2)) {
-                                    self.checkMarkDirt1 = CGPoint(x: checkMarkDirt1.x + 0, y: checkMarkDirt1.y - 100)
+                                    self.checkMarkDirt[0] = CGPoint(x: checkMarkDirt[0].x + 0, y: checkMarkDirt[0].y - 100)
                                     self.counter += 1
                                 }
                                 Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { timer in
                                     withAnimation(.spring()) {
-                                        self.isCleanDirt1.toggle()
+                                        self.isCleanDirt[0].toggle()
                                     }
                                 })
                             }
-                            .position(checkMarkDirt1)
+                            .position(checkMarkDirt[0])
                     }else{
                         Image("dirtShirt1")
                             .resizable()
@@ -119,20 +114,20 @@ struct GameScreen5: View {
                             .position(x: CalculateX(xPos: 0.58) , y : CalculateY(yPos: 0.31))
                     }
                     //dirt2
-                    if dirtOpacity[1] < 0.1 && !isCleanDirt2{
+                    if dirtOpacity[1] < 0.1 && !isCleanDirt[1]{
                         CheckMarkPop()
                             .onAppear{
                                 withAnimation(.easeInOut(duration: 2)) {
-                                    self.checkMarkDirt2 = CGPoint(x: checkMarkDirt2.x + 0, y: checkMarkDirt2.y - 100)
+                                    self.checkMarkDirt[1] = CGPoint(x: checkMarkDirt[1].x + 0, y: checkMarkDirt[1].y - 100)
                                     self.counter += 1
                                 }
                                 Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { timer in
                                     withAnimation(.spring()) {
-                                        self.isCleanDirt2.toggle()
+                                        self.isCleanDirt[1].toggle()
                                     }
                                 })
                             }
-                            .position(checkMarkDirt2)
+                            .position(checkMarkDirt[1])
                     }else{
                         Image("dirtShirt2")
                             .resizable()
@@ -143,20 +138,20 @@ struct GameScreen5: View {
                     }
                     
                     //dirt3
-                    if dirtOpacity[2] < 0.1 && !isCleanDirt3{
+                    if dirtOpacity[2] < 0.1 && !isCleanDirt[2]{
                         CheckMarkPop()
                             .onAppear{
                                 withAnimation(.easeInOut(duration: 2)) {
-                                    self.checkMarkDirt3 = CGPoint(x: checkMarkDirt3.x + 0, y: checkMarkDirt3.y - 100)
+                                    self.checkMarkDirt[2] = CGPoint(x: checkMarkDirt[2].x + 0, y: checkMarkDirt[2].y - 100)
                                     self.counter += 1
                                 }
                                 Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { timer in
                                     withAnimation(.spring()) {
-                                        self.isCleanDirt3.toggle()
+                                        self.isCleanDirt[2].toggle()
                                     }
                                 })
                             }
-                            .position(checkMarkDirt3)
+                            .position(checkMarkDirt[2])
                     }else{
                         Image("dirtShirt3")
                             .resizable()
@@ -166,20 +161,20 @@ struct GameScreen5: View {
                             .position(x :  CalculateX(xPos: 0.25), y : CalculateY(yPos: 0.47))
                     }
                     //dirt4
-                    if dirtOpacity[3] < 0.1 && !isCleanDirt4{
+                    if dirtOpacity[3] < 0.1 && !isCleanDirt[3]{
                         CheckMarkPop()
                             .onAppear{
                                 withAnimation(.easeInOut(duration: 2)) {
-                                    self.checkMarkDirt4 = CGPoint(x: checkMarkDirt4.x + 0, y: checkMarkDirt4.y - 100)
+                                    self.checkMarkDirt[3] = CGPoint(x: checkMarkDirt[3].x + 0, y: checkMarkDirt[3].y - 100)
                                     self.counter += 1
                                 }
                                 Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: { timer in
                                     withAnimation(.spring()) {
-                                        self.isCleanDirt4.toggle()
+                                        self.isCleanDirt[3].toggle()
                                     }
                                 })
                             }
-                            .position(checkMarkDirt4)
+                            .position(checkMarkDirt[3])
                     }else{
                         Image("dirtShirt4")
                             .resizable()
@@ -213,10 +208,10 @@ struct GameScreen5: View {
             
         }.onAppear{
             //checkmark pop up location
-            checkMarkDirt1 = CGPoint(x: CalculateX(xPos: 0.58), y: CalculateY(yPos: 0.31))
-            checkMarkDirt2 = CGPoint(x: CalculateX(xPos: 0.33), y: CalculateY(yPos: 0.42))
-            checkMarkDirt3 = CGPoint(x: CalculateX(xPos: 0.25), y: CalculateY(yPos: 0.47))
-            checkMarkDirt4 = CGPoint(x: CalculateX(xPos: 0.68), y: CalculateY(yPos: 0.41))
+            checkMarkDirt[0] = CGPoint(x: CalculateX(xPos: 0.58), y: CalculateY(yPos: 0.31))
+            checkMarkDirt[1] = CGPoint(x: CalculateX(xPos: 0.33), y: CalculateY(yPos: 0.42))
+            checkMarkDirt[2] = CGPoint(x: CalculateX(xPos: 0.25), y: CalculateY(yPos: 0.47))
+            checkMarkDirt[3] = CGPoint(x: CalculateX(xPos: 0.68), y: CalculateY(yPos: 0.41))
         }
     }
     
@@ -241,12 +236,12 @@ struct GameScreen5: View {
     
     //function to calculate x and y position of each dirt
     func CalculateX (xPos : Double) -> Double{
-        let _x: CGFloat = xPos * xDirtPos
+        let _x: CGFloat = xPos * dirtPos[0]
         return _x
         
         }
     func CalculateY (yPos : Double) -> Double{
-        let _y: CGFloat = yPos * yDirtPos
+        let _y: CGFloat = yPos * dirtPos[1]
         return _y
     }
     //----------------------------------------------------

@@ -10,8 +10,6 @@ struct BackStoryScreen: View {
     //Variables
     @State private var fontSize : Double = UIScreen.main.bounds.height * 0.02
     @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
-    var heightTitle = 20.0
-    var widthTitle = 50.0
     
     
     var body: some View {
@@ -32,8 +30,8 @@ struct BackStoryScreen: View {
                         Text ("small stains remaining on some parts of my clothes, especially on the collar, armpits, and cuffs. this was because the washing machine could not detect these areas, and i could not modify the machine to do what i wanted.")
                             .font(.system(size: fontSize , weight: .semibold , design: .rounded ))
                             .multilineTextAlignment(.center)
-                            .padding(.vertical, heightTitle)
-                            .padding(.horizontal, widthTitle)
+                            .padding(.vertical, 20.0)
+                            .padding(.horizontal, 50.0)
                             .padding(.top, 70)
                         Spacer()
                         

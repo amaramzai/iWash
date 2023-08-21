@@ -21,8 +21,11 @@ struct GameScreen6: View {
     @State var isCleanDirt3 = false
     @State var isCleanDirt4 = false
     
+  
+    
+    
     //array for opacity of every dirts
-    @State var dirtOpacity : [Double] = [1.0,1.0,1.0, 1.0]
+    @State var dirtOpacity : [Double] = [1.0,1.0,1.0,1.0]
     
     //checkmark pop up start location
     @State var checkMarkDirt1: CGPoint = CGPoint(x: 0, y: 0)

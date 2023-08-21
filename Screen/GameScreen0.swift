@@ -10,6 +10,11 @@ struct GameScreen0: View {
     
     //variables
     @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
+    var imageToolPrepSizeWidthPercentage = 0.6
+    var widthScreenPercentage = 0.04
+    var widthArrowRightPercentage = 0.07
+    var paddingTopArrowRightButton = 60.0
+    var paddingBottomArrowRightButton = 100.0
     
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
@@ -29,18 +34,18 @@ struct GameScreen0: View {
                         Image ("toolPreparations")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width * 0.6)
+                            .frame(width: UIScreen.main.bounds.width * imageToolPrepSizeWidthPercentage)
                         Spacer()
                         NavigationLink(destination: GameScreen1()){
                             Image(systemName: "arrow.right")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geometry.size.height * 0.07)
+                                .frame(width: geometry.size.height * widthScreenPercentage)
                                 .foregroundColor(Color.black)
                                 .ignoresSafeArea(.all)
                                 .edgesIgnoringSafeArea(.all)    
-                        }.padding(.top, 60)
-                            .padding(.bottom,100)
+                        }.padding(.top, paddingTopArrowRightButton)
+                            .padding(.bottom,paddingBottomArrowRightButton)
                         
                     }
                 }

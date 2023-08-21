@@ -11,6 +11,15 @@ struct GameScreen2: View {
     //variables
     @State private var fontSize : Double = UIScreen.main.bounds.height * 0.02
     @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
+    var imageClothesFrameWidthSizePercentage = 0.6
+    var paddingTextHoriAndVer = 100.0
+    
+    var widthScreenPercentage = 0.04
+    var widthArrowRightPercentage = 0.07
+    var paddingTopArrowRightButton = 60.0
+    var paddingBottomArrowRightButton = 100.0
+    var waterAndDetImageSizeWidthPercentage = 0.6
+    var paddingHorizontalDissolveText = 100.0
     
     
     var body: some View {
@@ -25,14 +34,14 @@ struct GameScreen2: View {
                     Image ("clothesSoak2")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: UIScreen.main.bounds.width * 0.6)
+                        .frame(width: UIScreen.main.bounds.width * imageClothesFrameWidthSizePercentage)
                     VStack {
                         
                         Text ("step 3 : put the dirty clothes into the detergent solution and then soak for 30-45 minutes.")
                             .font(.system(size: fontSizeTitle , weight: .semibold , design: .rounded ))
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 100.0)
-                            .padding(.top, 100)
+                            .padding(.horizontal, paddingTextHoriAndVer)
+                            .padding(.top, paddingTextHoriAndVer)
                         Spacer()
                         
                         Text ("the detergent soak helps remove dirt prior to the brushing process.")
@@ -42,12 +51,12 @@ struct GameScreen2: View {
                             Image(systemName: "arrow.right")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geometry.size.height * 0.07)
+                                .frame(width: geometry.size.height * widthArrowRightPercentage)
                                 .foregroundColor(Color.black)
                                 .ignoresSafeArea(.all)
                                 .edgesIgnoringSafeArea(.all)
-                        }.padding(.top, 60)
-                            .padding(.bottom,100)
+                        }.padding(.top, paddingTopArrowRightButton)
+                            .padding(.bottom, paddingBottomArrowRightButton)
                         
                     }
                 }
