@@ -8,9 +8,8 @@ import SwiftUI
 
 struct BackStoryScreen: View {
     //Variables
-    @State private var fontSize : Double = UIScreen.main.bounds.height * 0.02
-    @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
-    
+    private var fontSize : Double = UIScreen.main.bounds.height * 0.02
+    private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
     
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
@@ -25,7 +24,6 @@ struct BackStoryScreen: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.width * 0.7)
-                    
                     VStack {
                         Text ("small stains remaining on some parts of my clothes, especially on the collar, armpits, and cuffs. this was because the washing machine could not detect these areas, and i could not modify the machine to do what i wanted.")
                             .font(.system(size: fontSize , weight: .semibold , design: .rounded ))
@@ -34,7 +32,6 @@ struct BackStoryScreen: View {
                             .padding(.horizontal, 50.0)
                             .padding(.top, 70)
                         Spacer()
-                        
                         Spacer()
                         NavigationLink(destination: BackStoryScreen2()){
                             Image(systemName: "arrow.right")
@@ -52,9 +49,6 @@ struct BackStoryScreen: View {
             
         }
     }
-    
-    
-    
     struct BackStoryScreen_Previews: PreviewProvider {
         static var previews: some View {
             BackStoryScreen()

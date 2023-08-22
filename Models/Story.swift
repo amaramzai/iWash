@@ -9,7 +9,6 @@ import Foundation
 
 struct Story: Identifiable {
     let id: UUID = .init()
-    
     var content: [String]
     var imageName: String
     var footer: String?

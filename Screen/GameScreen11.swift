@@ -17,6 +17,7 @@ struct GameScreen11: View {
     var paddingTopArrowRightButton = 60.0
     var paddingBottomArrowRightButton = 100.0
     var textPaddingCongratsHorizontal = 100.0
+    var lastImageSizePercentage = 0.7
     
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
@@ -38,11 +39,11 @@ struct GameScreen11: View {
                         Image ("lastImage")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width * 0.7)
+                            .frame(width: UIScreen.main.bounds.width * lastImageSizePercentage)
                         Text ("this is our AHA moment!")
                             .font(.system(size: fontSizeTitle , weight: .semibold , design: .rounded ))
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 100.0)
+                            .padding(.horizontal, textPaddingCongratsHorizontal)
                         Spacer()
                         NavigationLink(destination: GameScreen12()){
                             Image(systemName: "arrow.right")

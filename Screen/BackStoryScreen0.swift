@@ -9,8 +9,8 @@ import SwiftUI
 struct BackStoryScreen0: View {
     
     //variables
-    @State private var fontSize : Double = UIScreen.main.bounds.height * 0.02
-    @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.03
+    private var fontSize : Double = UIScreen.main.bounds.height * 0.02
+    private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.03
     var paddingVerticalText = 20.0
     var paddingHorizontalText = 70.0
     var paddingTopText = 60.0
@@ -33,7 +33,6 @@ struct BackStoryScreen0: View {
                         .scaledToFit()
                         .frame(width: UIScreen.main.bounds.width * widthScreenPercentage)
                     VStack {
-                        
                         Text ("i cannot wash my clothes on my own.")
                             .font(.system(size: fontSizeTitle , weight: .semibold , design: .rounded ))
                             .multilineTextAlignment(.center)
@@ -44,7 +43,6 @@ struct BackStoryScreen0: View {
                             .multilineTextAlignment(.center)
                             .padding(.vertical, paddingVerticalText)
                             .padding(.horizontal, paddingHorizontalText)
-                        
                         Spacer()
                         NavigationLink(destination: BackStoryScreen()){
                             Image(systemName: "arrow.right")
@@ -56,16 +54,11 @@ struct BackStoryScreen0: View {
                                 .edgesIgnoringSafeArea(.all)
                         }.padding(.top, paddingTopArrowRightButton)
                             .padding(.bottom,paddingBottomArrowRightButton)
-                        
                     }
                 }
             }
-            
         }
     }
-    
-    
-    
     struct BackStoryScreen0_Previews: PreviewProvider {
         static var previews: some View {
             BackStoryScreen0()

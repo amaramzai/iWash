@@ -12,6 +12,13 @@ struct GameScreen9: View {
     @State private var fontSize : Double = UIScreen.main.bounds.height * 0.02
     @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
     
+    var widthScreenPercentage = 0.04
+    var widthArrowRightPercentage = 0.07
+    var paddingTopArrowRightButton = 60.0
+    var paddingBottomArrowRightButton = 100.0
+    var textPaddingCongratsHorizontal = 100.0
+    var waterAndDetImageSizeWidthPercentage = 0.6
+    
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
         GeometryReader {
@@ -26,23 +33,23 @@ struct GameScreen9: View {
                         Text ("step 7 : soak the clothes in the fabric softener solution and wait for 15 minutes.")
                             .font(.system(size: fontSizeTitle , weight: .semibold , design: .rounded ))
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal, 100.0)
+                            .padding(.horizontal, textPaddingCongratsHorizontal)
                         Spacer()
                         Image ("softener")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: UIScreen.main.bounds.width * 0.6)
+                            .frame(width: UIScreen.main.bounds.width * waterAndDetImageSizeWidthPercentage)
                         Spacer()
                         NavigationLink(destination: GameScreen10()){
                             Image(systemName: "arrow.right")
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: geometry.size.height * 0.07)
+                                .frame(width: geometry.size.height * widthArrowRightPercentage)
                                 .foregroundColor(Color.black)
                                 .ignoresSafeArea(.all)
                                 .edgesIgnoringSafeArea(.all)
-                        }.padding(.top, 60)
-                            .padding(.bottom,100)
+                        }.padding(.top, paddingTopArrowRightButton)
+                            .padding(.bottom, paddingBottomArrowRightButton)
                         
                     }
                 }

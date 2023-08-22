@@ -16,7 +16,7 @@ struct GameScreen12: View {
     var paddingTopArrowRightButton = 60.0
     var paddingBottomArrowRightButton = 100.0
     var imageDryClothesSizeWidthPercentage = 0.8
-    
+    var textPaddingCongratsHorizontal = 100.0
     var textPosXWidthPercentage = 0.5
     var textPosYHeightPercentage = 0.1
     
@@ -32,7 +32,7 @@ struct GameScreen12: View {
                     Text ("finally the last step is to dry our clothes under the sun lights!")
                         .font(.system(size: fontSizeTitle , weight: .semibold , design: .rounded ))
                         .multilineTextAlignment(.center)
-                        .padding(.horizontal, 100.0)
+                        .padding(.horizontal, textPaddingCongratsHorizontal)
                         .position(x: UIScreen.main.bounds.size.width * textPosXWidthPercentage , y : UIScreen.main.bounds.size.height * textPosYHeightPercentage)
                     VStack {
                         Spacer()

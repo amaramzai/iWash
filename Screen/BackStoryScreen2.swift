@@ -8,8 +8,8 @@ import SwiftUI
 
 struct BackStoryScreen2: View {
     //variables
-    @State private var fontSize : Double = UIScreen.main.bounds.height * 0.02
-    @State private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
+    private var fontSize : Double = UIScreen.main.bounds.height * 0.02
+    private var fontSizeTitle : Double = UIScreen.main.bounds.width * 0.035
     var paddingVerticalText = 20.0
     var paddingHorizontalText = 100.0
     var paddingTopText = 60.0

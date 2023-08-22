@@ -30,7 +30,7 @@ struct GameScreen5: View {
     //variables for showing the next button
     @State var isButtonHidden:  Bool = false
     
-    @State var textCollections: [String] = []
+    //@State var textCollections: [String] = []
     
     var body: some View {
         //GeometryReader for findinhg parent size of screen so the variables value could auto resize relative to screen size
